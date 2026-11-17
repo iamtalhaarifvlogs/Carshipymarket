@@ -1,20 +1,27 @@
+cat > src/utils/firebase.js << 'EOF'
 import { initializeApp, getApps, getApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported as isAnalyticsSupported } from "firebase/analytics";
 import { getMessaging, getToken, onMessage, isSupported } from "firebase/messaging";
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "dummy",
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "dummy.firebaseapp.com",
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "dummy-project",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "dummy.appspot.com",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "000000000000",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:000000000000:web:dummy",
 };
+
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
+// Analytics only starts when a real project ID is configured
 let analytics = null;
-if (typeof window !== "undefined") {
-  analytics = getAnalytics(app);
+if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID) {
+  isAnalyticsSupported()
+    .then((ok) => {
+      if (ok) analytics = getAnalytics(app);
+    })
+    .catch((err) => console.warn("Analytics disabled:", err));
 }
 
 let messaging = null;
@@ -22,21 +29,26 @@ let messaging = null;
 export const initializeMessaging = async () => {
   if (typeof window === "undefined") return null;
 
-  const supported = await isSupported();
+  try {
+    const supported = await isSupported();
 
-  if (!supported) {
-    console.warn("Firebase Messaging is not supported in this browser.");
+    if (!supported) {
+      console.warn("Firebase Messaging is not supported in this browser.");
+      return null;
+    }
+
+    if (!messaging) {
+      messaging = getMessaging(app);
+    }
+
+    return messaging;
+  } catch (error) {
+    console.warn("Firebase Messaging init failed:", error);
     return null;
   }
-
-  if (!messaging) {
-    messaging = getMessaging(app);
-  }
-
-  return messaging;
 };
 
-export { app };
+export { app, analytics };
 
 export const requestFcmToken = async (registration) => {
   try {
@@ -84,3 +96,4 @@ export const subscribeToForegroundMessages = async (callback) => {
     callback(payload);
   });
 };
+EOF
