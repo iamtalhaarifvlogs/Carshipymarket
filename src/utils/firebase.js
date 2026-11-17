@@ -14,7 +14,6 @@ const firebaseConfig = {
 
 const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 
-// Analytics only starts when a real project ID is configured
 let analytics = null;
 if (typeof window !== "undefined" && process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID) {
   isAnalyticsSupported()
@@ -28,19 +27,15 @@ let messaging = null;
 
 export const initializeMessaging = async () => {
   if (typeof window === "undefined") return null;
-
   try {
     const supported = await isSupported();
-
     if (!supported) {
       console.warn("Firebase Messaging is not supported in this browser.");
       return null;
     }
-
     if (!messaging) {
       messaging = getMessaging(app);
     }
-
     return messaging;
   } catch (error) {
     console.warn("Firebase Messaging init failed:", error);
@@ -53,7 +48,6 @@ export { app, analytics };
 export const requestFcmToken = async (registration) => {
   try {
     const messaging = await initializeMessaging();
-
     if (!messaging) return null;
 
     if (typeof window === "undefined" || typeof Notification === "undefined") {
@@ -65,7 +59,6 @@ export const requestFcmToken = async (registration) => {
     if (permission === "default") {
       permission = await Notification.requestPermission();
     }
-
     if (permission !== "granted") {
       console.warn("Notification permission not granted:", permission);
       return null;
@@ -79,8 +72,7 @@ export const requestFcmToken = async (registration) => {
       tokenOptions.serviceWorkerRegistration = registration;
     }
 
-    const token = await getToken(messaging, tokenOptions);
-    return token;
+    return await getToken(messaging, tokenOptions);
   } catch (error) {
     console.error("Error getting FCM token:", error);
     return null;
@@ -89,9 +81,7 @@ export const requestFcmToken = async (registration) => {
 
 export const subscribeToForegroundMessages = async (callback) => {
   const messaging = await initializeMessaging();
-
   if (!messaging) return;
-
   return onMessage(messaging, (payload) => {
     callback(payload);
   });
