@@ -1,4 +1,4 @@
-cat > src/utils/firebase.js << 'EOF'
+
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getAnalytics, isSupported as isAnalyticsSupported } from "firebase/analytics";
 import { getMessaging, getToken, onMessage, isSupported } from "firebase/messaging";
@@ -86,4 +86,3 @@ export const subscribeToForegroundMessages = async (callback) => {
     callback(payload);
   });
 };
-EOF
