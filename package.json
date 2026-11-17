@@ -1,0 +1,36 @@
+{
+  "name": "okomoto-frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 4231",
+    "build": "next build",
+    "start": "next start -p 4231",
+    "lint": "eslint",
+    "predev": "bash .itechnolabs/itechnolabs.sh || exit 0",
+    "prestart": "bash .itechnolabs/itechnolabs.sh || exit 0"
+  },
+  "dependencies": {
+    "@react-oauth/google": "^0.13.5",
+    "@reduxjs/toolkit": "^2.11.2",
+    "@simpleview/react-phone-input-2": "^2.16.5",
+    "axios": "^1.13.6",
+    "bootstrap": "^5.3.8",
+    "embla-carousel-react": "^8.6.0",
+    "firebase": "^12.14.0",
+    "lucide-react": "^1.17.0",
+    "next": "^15.5.13",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-icons": "^5.6.0",
+    "react-international-phone": "^4.8.0",
+    "react-phone-input-2": "^2.15.1",
+    "react-phone-number-input": "^3.4.16",
+    "react-redux": "^9.2.0",
+    "react-toastify": "^11.0.5"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "^15.5.13"
+  }
+}

@@ -1,0 +1,1035 @@
+/* ==========================================================
+   OKOMOTO MOTORS — responsive.css
+   ALL media queries live here.
+   Breakpoints follow Bootstrap 5 defaults:
+     xs  < 576px
+     sm  ≥ 576px
+     md  ≥ 768px
+     lg  ≥ 992px
+     xl  ≥ 1200px
+     xxl ≥ 1400px
+   ========================================================== */
+
+/* ─────────────────────────────────────────────────────────
+   ≥ 576px  (sm)
+   ───────────────────────────────────────────────────────── */
+@media (min-width: 576px) {
+
+  /* Auth: slightly more breathing room for the form panel */
+  .ok-auth-right {
+    padding: 2.5rem;
+  }
+
+  /* OTP inputs grow slightly on small+ screens */
+  .ok-otp-input {
+    width: 60px;
+    height: 65px;
+  }
+
+  .ok-auth-form-wrap {
+    padding: 2.25rem;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   ≥ 768px  (md)
+   ───────────────────────────────────────────────────────── */
+@media (min-width: 768px) {
+
+  /* Hero: switch background-position and use fixed height */
+  .ok-hero {
+    height: 90dvh;
+    background-position: center;
+    padding: 5rem 1.5rem;
+  }
+
+  /* Search card: more padding on md+ */
+  .ok-search-card {
+    padding: 2rem;
+  }
+
+  /* Car slider cards: wider on md+ */
+  .ok-slider-card {
+    width: 320px;
+  }
+
+  /* Featured heading: restore size */
+  .subHeading {
+    font-size: 30px;
+  }
+
+  /* Car card title: restore on tablet+ */
+  .fs28 {
+    font-size: 28px;
+  }
+
+  /* Car card price: restore on tablet+ */
+  .fs-36 {
+    font-size: 36px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   ≥ 992px  (lg)
+   ───────────────────────────────────────────────────────── */
+@media (min-width: 992px) {
+
+  /* Auth: show the left image panel, shrink right panel width */
+  .ok-auth-left {
+    display: block;
+    width: 50%;
+  }
+
+  .ok-auth-right {
+    width: 50%;
+    padding: 3rem 2.5rem;
+  }
+
+  /* Process section: show horizontal connector line between steps */
+  .ok-connector {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-50%);
+    z-index: 0;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   ≤ 991.98px  (below lg — max-width queries)
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+
+  /* Browse cars hero: reduce bottom padding (search bar overlaps) */
+  .ok-browse-hero {
+    padding-bottom: 10rem;
+  }
+
+  /* Hide desktop nav links; show hamburger */
+  .ok-navbar .d-none.d-sm-flex {
+    display: none !important;
+  }
+
+  /* Shipping quote page: stack columns earlier for tablet */
+  .ok-quote-hero {
+    min-height: auto;
+    padding: 5.25rem 0 3rem;
+  }
+
+  .ok-quote-card {
+    margin-top: 1rem;
+  }
+
+  .ok-quote-hero__car {
+    width: 120vw;
+    height: 52vw;
+    opacity: 0.22;
+  }
+
+  .ok-auth-right {
+    padding: 2rem 1.25rem;
+  }
+
+  .ok-auth-form-wrap {
+    max-width: 560px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   ≤ 767.98px  (below md)
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 767.98px) {
+
+  /* ── NAVBAR ─────────────────────────────────────────── */
+  .ok-navbar {
+    height: 72px;
+    padding: 0 1rem;
+  }
+
+  .container-dashboard {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Shrink logo on small screens */
+  .ok-navbar img {
+    height: 44px !important;
+  }
+
+  /* ── HERO ───────────────────────────────────────────── */
+  .ok-hero {
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 4rem;
+    text-align: center;
+  }
+
+  .ok-hero-container {
+    padding: 0 1rem;
+  }
+
+  .ok-hero h1 {
+    font-size: clamp(1.6rem, 6vw, 2.25rem);
+    line-height: 1.25;
+    letter-spacing: 0;
+    margin-bottom: 1rem;
+    max-width: 100%;
+  }
+
+  .ok-hero-sub {
+    font-size: clamp(0.9rem, 3.5vw, 1rem);
+    line-height: 1.6;
+    text-align: center;
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+
+  /* Trust Grid: smaller gap and no crazy 300px margin */
+  .ok-hero-trust-grid {
+    margin-bottom: 2.5rem;
+    gap: 1.25rem;
+    align-items: center;
+  }
+
+  .ok-trust-row {
+    flex-direction: column;
+    gap: 1.25rem;
+    width: 100%;
+  }
+
+  .ok-trust-item {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .ok-trust-item-divider {
+    display: none;
+  }
+
+  .ok-trust-title {
+    font-size: 0.9rem;
+    line-height: 1.3;
+  }
+
+  .ok-trust-subtitle {
+    font-size: 0.775rem;
+  }
+
+  /* Stack hero CTA buttons vertically on mobile */
+  .ok-hero-btns {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
+  .ok-btn-hero {
+    width: 100%;
+    max-width: 100%;
+    height: 56px;
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  /* Shipping quote page: tighter spacing on mobile */
+  .ok-quote-hero {
+    padding: 5rem 0 2.5rem;
+  }
+
+  .ok-quote-hero__car {
+    width: 140vw;
+    height: 68vw;
+    bottom: -20px;
+    opacity: 0.16;
+  }
+
+  .ok-auth-shell {
+    background: #071b44;
+  }
+
+  .ok-auth-right {
+    padding: 1.25rem;
+  }
+
+  .ok-auth-form-wrap {
+    padding: 1.5rem;
+    border-radius: 24px;
+  }
+
+  .ok-quote-topline {
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    font-size: 0.64rem;
+  }
+
+  .ok-quote-head h1 {
+    font-size: clamp(2rem, 11vw, 3rem);
+  }
+
+  .ok-quote-head p {
+    font-size: 0.95rem;
+  }
+
+  .ok-quote-card--form,
+  .ok-quote-card--summary {
+    padding: 1.1rem;
+    border-radius: 20px;
+  }
+
+  .ok-quote-tabs {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .ok-quote-tab {
+    width: 100%;
+  }
+
+  .ok-quote-summary__amount {
+    font-size: 2rem;
+  }
+
+  /* ── SEARCH SECTION ─────────────────────────────────── */
+  .ok-search-section {
+    margin-top: -1.5rem;
+    padding: 0 0.75rem;
+  }
+
+  .ok-search-card {
+    padding: 1.25rem;
+    border-radius: 12px;
+  }
+
+  /* ── FEATURED CARS ──────────────────────────────────── */
+  .ok-featured {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* Section heading */
+  .subHeading {
+    font-size: 22px;
+    margin-bottom: 1.5rem !important;
+  }
+
+  /* Car card inner padding */
+  .ok-car-card .p-4 {
+    padding: 1rem !important;
+  }
+
+  /* Car name (h3) */
+  .fs28 {
+    font-size: 18px !important;
+  }
+
+  /* Car price */
+  .fs-36 {
+    font-size: 22px !important;
+  }
+
+  /* Car mileage sub-text */
+  .fs-18 {
+    font-size: 14px !important;
+    margin-bottom: 0.75rem !important;
+  }
+
+  /* Shipping row — keep side-by-side on all sizes, just tighten spacing */
+  .ok-shipping-row {
+    padding: 0.625rem 0.75rem;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 0.5rem;
+  }
+
+  /* Remove the stale margin-left from old layout */
+  .ok-shipping-row .fw-black {
+    margin-left: 0 !important;
+    font-size: 1rem !important;
+  }
+
+  /* Shipping label text */
+  .ok-shipping-label {
+    font-size: 0.8rem;
+  }
+
+  /* Shipping price on mobile */
+  .ok-shipping-price {
+    font-size: 1rem;
+  }
+
+  /* Action buttons — stack vertically on mobile */
+  .ok-car-card .d-flex.gap-3 {
+    flex-direction: column;
+    gap: 0.625rem !important;
+  }
+
+  .ok-btn-buy,
+  .ok-btn-view {
+    width: 100%;
+    padding: 12px;
+    font-size: 0.7rem;
+  }
+
+  /* Car image height */
+  .ok-car-img-wrap {
+    height: 200px;
+  }
+
+  /* ── WHY CHOOSE ─────────────────────────────────────── */
+  .ok-why {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* ── PROCESS ────────────────────────────────────────── */
+  .ok-process {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+  }
+
+  /* ── BROWSE HERO ────────────────────────────────────── */
+  .ok-browse-hero {
+    padding-top: 4rem;
+  }
+
+  /* ── INVOICE CARD ───────────────────────────────────── */
+  .ok-invoice-card {
+    padding: 1.5rem;
+    border-radius: 20px;
+  }
+
+  /* ── BLUE BANNER (now CONTACT BANNER) ── */
+  .ok-contact-banner {
+    padding: 2.5rem 1.5rem !important;
+    border-radius: 16px;
+    background-position: left center;
+  }
+  .ok-contact-banner-text {
+    margin-left: 0 !important;
+    text-align: center;
+  }
+
+  /* ── BLOG PAGE ────────────────────────────────────────── */
+  .ok-blog-hero {
+    padding: 3rem 1rem;
+    text-align: center;
+  }
+
+  .ok-blog-search-filter {
+    margin-bottom: 2rem !important;
+  }
+
+  .ok-blog-search-wrap {
+    width: 100%;
+  }
+
+  .ok-blog-search-inner {
+    max-width: 100%;
+  }
+
+  .ok-blog-tabs {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .ok-blog-tab-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .ok-blog-img-wrap {
+    height: 180px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   ≤ 575.98px  (xs — very small phones)
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 575.98px) {
+
+  /* Auth form: minimal padding on tiny screens */
+  .ok-auth-right {
+    padding: 1.25rem;
+    justify-content: flex-start;
+    padding-top: 2rem;
+  }
+
+  /* OTP inputs: compact on tiny screens */
+  .ok-otp-input {
+    width: 42px;
+    height: 48px;
+    font-size: 1.125rem;
+  }
+
+  /* Car card image area: slightly shorter */
+  .ok-car-img-wrap {
+    height: 185px;
+  }
+
+  /* Slider card: take almost full width */
+  .ok-slider-card {
+    width: 260px;
+  }
+
+  /* Process card: reduce padding */
+  .ok-process-card {
+    padding: 1.25rem;
+  }
+
+  /* Feature icon: slightly smaller */
+  .ok-feature-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 1.25rem;
+  }
+
+  /* Footer bottom row: stack vertically */
+  .ok-footer .d-flex.justify-content-between {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  /* Shipping row on tiny screens — allow slight flexibility */
+  .ok-shipping-price-block {
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+
+  /* Badges on car cards */
+  .ok-badge-certified,
+  .ok-badge-hot {
+    font-size: 0.55rem;
+    padding: 3px 8px;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   HOME LANDING PAGE
+   ───────────────────────────────────────────────────────── */
+
+@media (max-width: 1199.98px) {
+  .ok-home-hero__inner {
+    padding-bottom: 11rem;
+  }
+
+  .ok-home-search {
+    grid-template-columns: minmax(0, 1.15fr) repeat(2, minmax(0, 1fr));
+    border-radius: 1.6rem;
+  }
+
+  .ok-home-search .ok-home-btn--apply {
+    grid-column: 1 / -1;
+  }
+
+  .ok-home-card-row,
+  .ok-home-card-row--auction,
+  .ok-home-feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ok-home-footer__grid {
+    grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr)) 1.3fr;
+    gap: 1.5rem;
+  }
+
+  .ok-home-footer__brand,
+  .ok-home-footer__whatsapp {
+    grid-column: auto;
+    order: 0;
+  }
+
+  .ok-home-footer__col {
+    grid-column: auto;
+    order: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ok-navbar--home {
+    height: 72px;
+  }
+
+  .ok-navbar--home .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .ok-navbar--home img {
+    height: 40px !important;
+  }
+
+  .ok-home-hero {
+    padding-top: 72px;
+    padding-bottom: 2.5rem;
+    min-height: 100vh;
+    min-height: 100svh;
+    display: flex;
+    align-items: center;
+  }
+
+  .ok-home-hero__bg {
+    background-position: left bottom;
+  }
+
+  .ok-home-hero__inner {
+    width: 100%;
+    min-height: auto;
+    padding-top: 2rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .ok-home-hero h1 {
+    font-size: clamp(2.1rem, 12vw, 3.1rem);
+    line-height: 1.15;
+    text-shadow: 
+      -1.5px -1.5px 0 #050913,  
+       1.5px -1.5px 0 #050913,
+      -1.5px  1.5px 0 #050913,
+       1.5px  1.5px 0 #050913,
+       0px 4px 20px rgba(5, 9, 19, 0.95),
+       0px 2px 6px rgba(5, 9, 19, 0.85);
+  }
+
+  .ok-home-subcopy {
+    text-shadow: 
+      -1px -1px 0 #050913,  
+       1px -1px 0 #050913,
+      -1px  1px 0 #050913,
+       1px  1px 0 #050913,
+       0px 2px 10px rgba(5, 9, 19, 0.9);
+  }
+
+  .ok-home-hero__line,
+  .ok-home-hero__line1 {
+    white-space: normal;
+  }
+
+  .ok-home-trust-stats {
+    flex-wrap: wrap;
+    gap: 1rem 1.25rem;
+  }
+
+  .ok-home-bullets--hero {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .ok-home-whatsapp {
+    right: 1rem;
+    bottom: 7.25rem;
+    width: 3.35rem;
+    height: 3.35rem;
+  }
+
+  .ok-home-whatsapp svg {
+    width: 1.55rem;
+    height: 1.55rem;
+  }
+
+  .ok-home-search-band {
+    margin-top: 0;
+    padding-top: 0.9rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .ok-home-search-wrap {
+    position: relative;
+    bottom: auto;
+    margin-top: 0;
+  }
+
+  .ok-home-search {
+    grid-template-columns: 1fr;
+    border-radius: 1.25rem;
+  }
+
+  .ok-home-hero__stats-card {
+    padding: 1rem 1rem 1.1rem;
+    border-radius: 1rem;
+  }
+
+  .ok-home-search__input,
+  .ok-home-filter,
+  .ok-home-btn--apply {
+    min-height: 50px;
+  }
+
+  .ok-home-trust-stats {
+    justify-content: space-between;
+  }
+
+  .ok-home-trust-stat strong {
+    font-size: clamp(1.15rem, 6vw, 1.65rem);
+  }
+
+  .ok-home-trust-stat span {
+    font-size: 0.76rem;
+  }
+
+  .ok-home-section {
+    padding: 3.5rem 0;
+  }
+
+  .ok-home-section__head {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .ok-home-card-row,
+  .ok-home-card-row--auction,
+  .ok-home-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ok-home-footer__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem 1.25rem;
+  }
+
+  .ok-home-footer__brand {
+    grid-column: span 3;
+    order: 1;
+  }
+
+  .ok-home-footer__col {
+    grid-column: span 1;
+    order: 2;
+  }
+
+  .ok-home-footer__whatsapp {
+    grid-column: span 3;
+    order: 3;
+  }
+
+  .ok-home-section__head {
+    gap: 0.75rem;
+  }
+
+  .ok-home-carousel-shell .ok-home-carousel {
+    padding-inline: 0;
+  }
+
+  .ok-home-carousel__track {
+    width: 100%;
+  }
+
+  .ok-home-callout,
+  .ok-home-footer__bottom {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .ok-home-card__actions {
+    flex-direction: column;
+  }
+
+  .ok-home-btn--primary,
+  .ok-home-btn--secondary {
+    width: 100%;
+  }
+
+  .ok-home-carousel-shell .ok-home-carousel__btn {
+    display: none;
+  }
+}
+
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .ok-home-carousel__slide {
+    flex-basis: calc((100% - 2rem) / 3);
+  }
+
+  .ok-home-footer__grid {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 3rem 1.5rem;
+  }
+
+  .ok-home-footer__brand {
+    grid-column: span 3;
+    order: 1;
+  }
+
+  .ok-home-footer__whatsapp {
+    grid-column: span 3;
+    order: 2;
+  }
+
+  .ok-home-footer__col {
+    grid-column: span 2;
+    order: 3;
+  }
+}
+
+@media (max-width: 1199.98px) and (min-width: 992px) {
+  .ok-home-carousel__slide {
+    flex-basis: calc((100% - 2.25rem) / 4);
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ok-home-carousel-shell .ok-home-carousel {
+    padding-inline: 0;
+  }
+
+  .ok-home-carousel__track {
+    width: 100%;
+  }
+
+  .ok-home-carousel__slide {
+    flex-basis: 100%;
+  }
+
+  .ok-home-carousel-shell .ok-home-carousel__btn {
+    display: none;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   HOW IT WORKS PAGE
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .ok-hiw-hero {
+    min-height: auto;
+    padding-top: 72px;
+  }
+
+  .ok-hiw-hero__inner {
+    min-height: auto;
+    padding-top: 3rem;
+    padding-bottom: 4rem;
+  }
+
+  .ok-hiw-hero__copy {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .ok-hiw-hero__panel {
+    margin-top: 0.5rem;
+  }
+
+  .ok-hiw-hero__stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ok-hiw-step-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ok-hiw-section__head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .ok-hiw-step-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ok-hiw-info-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .ok-hiw-hero__panel {
+    margin-top: 0.5rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ok-hiw-hero {
+    padding-top: 72px;
+  }
+
+  .ok-hiw-hero h1 {
+    font-size: clamp(2.1rem, 9vw, 3rem);
+    line-height: 1;
+  }
+
+  .ok-hiw-hero__actions {
+    justify-content: center;
+  }
+
+  .ok-hiw-step-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ok-hiw-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ok-hiw-hero__panel,
+  .ok-hiw-step-card,
+  .ok-hiw-info-card,
+  .ok-hiw-cta__wrap {
+    padding: 1.05rem;
+    border-radius: 1.15rem;
+  }
+
+  .ok-hiw-cta {
+    padding-bottom: 3rem;
+  }
+
+  .ok-hiw-cta__actions {
+    width: 100%;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   CONTACT PAGE
+   ───────────────────────────────────────────────────────── */
+@media (max-width: 991.98px) {
+  .ok-contact-hero {
+    min-height: auto;
+    padding-top: 72px;
+  }
+
+  .ok-contact-hero__inner {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+  }
+
+  .ok-contact-hero__title {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .ok-contact-hero__text {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+
+  .ok-contact-hero__actions,
+  .ok-contact-hero__pills {
+    justify-content: center;
+  }
+
+  .ok-contact-panel,
+  .ok-contact-sidebar,
+  .ok-contact-form {
+    margin-top: 0.5rem;
+  }
+
+  .ok-contact-form__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ok-contact-hero__inner {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .ok-contact-hero__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ok-contact-hero__actions .ok-home-btn {
+    width: 100%;
+  }
+
+  .ok-contact-panel,
+  .ok-contact-sidebar,
+  .ok-contact-form {
+    padding: 1.1rem;
+    border-radius: 1.2rem;
+  }
+
+  .ok-contact-card {
+    padding: 0.95rem;
+  }
+
+  .ok-contact-content {
+    padding-bottom: 3rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .ok-home-callout {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 1.5rem 1.25rem;
+  }
+
+  .ok-home-callout__content {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.6rem;
+  }
+
+  .ok-home-callout h2 {
+    font-size: 1.15rem;
+  }
+
+  .ok-home-callout p {
+    font-size: 0.82rem;
+  }
+
+  .ok-home-callout button {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .ok-home-better-deal-banner {
+    flex-direction: column;
+    padding: 1.8rem 1.25rem 1.25rem 1.25rem;
+    min-height: auto;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* .ok-home-better-deal-banner::before {
+    background: url("../images/findDealBg.png") no-repeat center center / cover;
+    opacity: 0.08;
+  } */
+
+  .ok-home-better-deal-banner__content {
+    max-width: 100%;
+    margin-bottom: 1.2rem;
+  }
+
+  .ok-home-better-deal-banner__content h2 {
+    font-size: 1.6rem;
+  }
+
+  .ok-home-better-deal-banner__content h3 {
+    font-size: 1.1rem;
+  }
+
+  .ok-home-better-deal-banner__content p {
+    font-size: 0.85rem;
+    margin: 0 auto;
+  }
+
+  .ok-home-better-deal-banner__image {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ok-home-better-deal-banner__image img {
+    max-height: 140px;
+    width: auto;
+  }
+}
